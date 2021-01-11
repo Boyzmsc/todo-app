@@ -2,8 +2,8 @@
   <div class = "inputBox shadow">
       <input type="text" v-model = "newTodoItem" v-on:keyup.enter = "addTodo">
       <!-- <button v-on:click = "addTodo">add</button> -->
-      <span class = "addContainer">
-        <i class="fas fa-plus addBtn" v-on:click = "addTodo"></i>
+      <span class = "addContainer" v-on:click = "addTodo">
+        <i class="fas fa-plus addBtn" ></i>
       </span>
   </div>
 </template>
@@ -41,17 +41,18 @@ input:focus{
   border-radius: 5px;
 }
 .inputBox input {
-  background : none;
   border-style: none;
+  font-size: 1rem;
   float: left;
-  font-size: 0.9rem;
-  height:inherit;
+  height:100%;
+  background: none;
+  width: 85%;
 }
 .addContainer{
   float: right;
   background: linear-gradient(to right, #6478FB, #8763FB);
-  display: block;
-  width: 3rem;
+  display: inline-block;
+  width: 13%;
   border-radius: 0 5px 5px 0;
 }
 .addBtn {
