@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <span>
+  <div class = "clearAllContainer" v-on:click = "clearTodo">
+      <span class = "clearAllBtn">
         Clear All
       </span>
   </div>
@@ -8,7 +8,11 @@
 
 <script>
 export default {
-
+  methods: {
+    clearTodo : function(){
+      localStorage.clear();
+    }
+  }
 }
 </script>
 
