@@ -19,6 +19,7 @@ export default {
     addTodo : function(){
       console.log(this.newTodoItem);
       if (this.newTodoItem !== ''){
+        // 데이터 속성, 값 지정
         var obj = {
           completed : false,
           item : this.newTodoItem

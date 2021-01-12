@@ -9,6 +9,7 @@
 <script>
 export default {
   methods: {
+    // 로컬 스토리지 데이터 초기화
     clearTodo : function(){
       localStorage.clear();
     }
