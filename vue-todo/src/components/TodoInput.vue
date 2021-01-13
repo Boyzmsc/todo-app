@@ -17,14 +17,8 @@ export default {
   },
   methods: {
     addTodo : function(){
-      console.log(this.newTodoItem);
       if (this.newTodoItem !== ''){
-        // 데이터 속성, 값 지정
-        var obj = {
-          completed : false,
-          item : this.newTodoItem
-        };
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        this.$emit("add",this.newTodoItem);
         this.clearInput();
       }
     },
