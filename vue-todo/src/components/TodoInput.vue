@@ -18,7 +18,6 @@ export default {
   methods: {
     addTodo : function(){
       if (this.newTodoItem !== ''){
-        // 상위 컴포넌트로 이벤트 발생
         this.$emit("add",this.newTodoItem);
         this.clearInput();
       }

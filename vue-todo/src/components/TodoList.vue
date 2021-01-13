@@ -16,11 +16,9 @@
 export default {
   props : ['propsdata'],
   methods: {
-    // 지정 데이터 삭제 (로컬 스토리지, 리스트 배열)
     removeTodo : function(todoItem, index){
       this.$emit("remove", todoItem, index);
       },
-    // 지정 데이터 completed 속성 갱신 (로컬 스토리지, 리스트 배열)
     toggleComplete : function(todoItem, index){
       this.$emit("complete", todoItem, index);
     }

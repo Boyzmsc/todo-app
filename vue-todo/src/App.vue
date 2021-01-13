@@ -14,6 +14,7 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
+    // 중앙 컴포넌트 형식으로 데이터 관리
     data : function(){
         return {
             todoItems : []
@@ -36,23 +37,27 @@ export default {
         'todo-footer' : TodoFooter
     },
     methods : {
+        // 데이터 추가
         addItem : function(itemAdded){
             var obj = {completed : false, item : itemAdded};
             localStorage.setItem(itemAdded, JSON.stringify(obj));
             this.todoItems.push(obj);
         },
+        // 지정 데이터 삭제 (로컬 스토리지, 리스트 배열)
         removeItem : function(todoItem, index){
             localStorage.removeItem(todoItem);
             this.todoItems.splice(index,1);
         },
+        // 지정 데이터 completed 속성 갱신 (로컬 스토리지, 리스트 배열)
         completeItem : function(todoItem, index){
             this.todoItems[index].completed = !this.todoItems[index].completed
             // 로컬 스트리지의 데이터 갱신 -> 제거 이후 추가
             localStorage.removeItem(todoItem.item);
             localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
         },
+        // 데이터 초기화
         clearAll : function(){
-            this.todoItems.clear();
+            this.todoItems = [];
             localStorage.clear();
         }
     }
