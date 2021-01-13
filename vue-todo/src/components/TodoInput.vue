@@ -19,12 +19,8 @@ export default {
     addTodo : function(){
       console.log(this.newTodoItem);
       if (this.newTodoItem !== ''){
-        // 데이터 속성, 값 지정
-        var obj = {
-          completed : false,
-          item : this.newTodoItem
-        };
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        // 상위 컴포넌트로 이벤트 발생
+        this.$emit("add",this.newTodoItem);
         this.clearInput();
       }
     },

@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <todo-header></todo-header>
-        <todo-input></todo-input>
+        <todo-input v-on:add = "addItem"></todo-input>
         <todo-list v-bind:propsdata = "todoItems"></todo-list>
         <todo-footer></todo-footer>
     </div>
@@ -34,6 +34,13 @@ export default {
         'todo-input' : TodoInput,
         'todo-list' : TodoList,
         'todo-footer' : TodoFooter
+    },
+    methods : {
+        addItem : function(itemAdded){
+            var obj = {completed : false, item : itemAdded};
+            localStorage.setItem(itemAdded, JSON.stringify(obj));
+            this.todoItems.push(obj);
+        }
     }
 }
 </script>
