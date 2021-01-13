@@ -22,11 +22,7 @@ export default {
       },
     // 지정 데이터 completed 속성 갱신 (로컬 스토리지, 리스트 배열)
     toggleComplete : function(todoItem, index){
-      console.log(index);
-      todoItem.completed = !todoItem.completed;
-      // 로컬 스트리지의 데이터 갱신 -> 제거 이후 추가
-      localStorage.removeItem(todoItem.item);
-      localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
+      this.$emit("complete", todoItem, index);
     }
   }
 }

@@ -2,7 +2,7 @@
     <div id="app">
         <todo-header></todo-header>
         <todo-input v-on:add = "addItem"></todo-input>
-        <todo-list v-bind:propsdata = "todoItems" v-on:remove = "removeItem"></todo-list>
+        <todo-list v-bind:propsdata = "todoItems" v-on:remove = "removeItem" v-on:complete = "completeItem"></todo-list>
         <todo-footer></todo-footer>
     </div>
 </template>
@@ -44,6 +44,13 @@ export default {
         removeItem : function(todoItem, index){
             localStorage.removeItem(todoItem);
             this.todoItems.splice(index,1);
+        },
+        completeItem : function(todoItem, index){
+            this.todoItems[index].completed = !this.todoItems[index].completed
+            // 로컬 스트리지의 데이터 갱신 -> 제거 이후 추가
+            console.log(todoItem.completed);
+            localStorage.removeItem(todoItem.item);
+            localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
         }
     }
 }

@@ -17,7 +17,6 @@ export default {
   },
   methods: {
     addTodo : function(){
-      console.log(this.newTodoItem);
       if (this.newTodoItem !== ''){
         // 상위 컴포넌트로 이벤트 발생
         this.$emit("add",this.newTodoItem);
