@@ -11,9 +11,11 @@
       you can use custom content here to overwrite
       default content
     -->
-        <h3 slot="header">경고!</h3>
-        <div slot="body">무엇가를 입력하세요.</div>
-        <div slot="footer">copy right</div>
+        <h3 slot="header">
+          경고!
+          <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
+        </h3>
+        <div slot="body">아무것도 입력하지 않으셨습니다.</div>
       </modal>
   </div>
 </template>
@@ -77,4 +79,8 @@ input:focus{
   color: white;
   vertical-align: middle;
 }
+.closeModalBtn{
+    color : #42b983;
+}
+
 </style>
