@@ -59,7 +59,8 @@ export default {
     text-decoration: line-through;
     color: #b3adad;
   }
-  /* Transitions & Animation */
+
+  /* list item - Transitions & Animation */
   .list-enter-active, .list-leave-active {
     transition: all 1s;
   }
