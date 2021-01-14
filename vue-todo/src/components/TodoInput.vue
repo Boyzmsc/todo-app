@@ -11,7 +11,9 @@
       you can use custom content here to overwrite
       default content
     -->
-        <h3 slot="header">custom header</h3>
+        <h3 slot="header">경고!</h3>
+        <div slot="body">무엇가를 입력하세요.</div>
+        <div slot="footer">copy right</div>
       </modal>
   </div>
 </template>
@@ -31,6 +33,8 @@ export default {
       if (this.newTodoItem !== ''){
         this.$emit("add",this.newTodoItem);
         this.clearInput();
+      }else{
+        this.showModal = true;
       }
     },
     // input box 초기화
