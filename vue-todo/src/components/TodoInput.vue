@@ -24,14 +24,14 @@
 import Modal from './common/Modal.vue'
 
 export default {
-  data : function(){
+  data(){
     return {
       newTodoItem : "",
       showModal: false
     }
   },
   methods: {
-    addTodo : function(){
+    addTodo(){
       if (this.newTodoItem !== ''){
         this.$emit("add",this.newTodoItem);
         this.clearInput();
@@ -40,7 +40,7 @@ export default {
       }
     },
     // input box 초기화
-    clearInput : function(){
+    clearInput(){
       this.newTodoItem = '';
     }
   },
