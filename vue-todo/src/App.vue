@@ -20,9 +20,15 @@ export default {
             todoItems : []
         }
     },
+    components : {
+        'todo-header' : TodoHeader,
+        'todo-input' : TodoInput,
+        'todo-list' : TodoList,
+        'todo-footer' : TodoFooter
+    },
     created : function(){
         if (localStorage.length > 0){
-            for (var i = 0; i < localStorage.length; i++){
+            for (let i = 0; i < localStorage.length; i++){
                 // 웹팩 정보 제외 구문
                 if (localStorage.key(i) !== 'loglevel:webpack-dev-server'){
                     this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
@@ -30,16 +36,10 @@ export default {
             }
         }
     },
-    components : {
-        'todo-header' : TodoHeader,
-        'todo-input' : TodoInput,
-        'todo-list' : TodoList,
-        'todo-footer' : TodoFooter
-    },
     methods : {
         // 데이터 추가
         addItem : function(itemAdded){
-            var obj = {completed : false, item : itemAdded};
+            const obj = {completed : false, item : itemAdded};
             localStorage.setItem(itemAdded, JSON.stringify(obj));
             this.todoItems.push(obj);
         },
