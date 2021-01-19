@@ -26,16 +26,16 @@ export default {
         'todo-list' : TodoList,
         'todo-footer' : TodoFooter
     },
-    created(){
-        if (localStorage.length > 0){
-            for (let i = 0; i < localStorage.length; i++){
-                // 웹팩 정보 제외 구문
-                if (localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-                    this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-                }
-            }
-        }
-    },
+    // created(){
+    //     if (localStorage.length > 0){
+    //         for (let i = 0; i < localStorage.length; i++){
+    //             // 웹팩 정보 제외 구문
+    //             if (localStorage.key(i) !== 'loglevel:webpack-dev-server'){
+    //                 this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+    //             }
+    //         }
+    //     }
+    // },
     methods : {
         // 데이터 추가
         addItem(itemAdded){
