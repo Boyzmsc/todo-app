@@ -7,10 +7,6 @@
       </span>
 
       <modal v-if="showModal" @close="showModal = false">
-        <!--
-      you can use custom content here to overwrite
-      default content
-    -->
         <h3 slot="header">
           경고!
           <i class="fas fa-times closeModalBtn" @click="showModal = false"></i>
@@ -33,7 +29,9 @@ export default {
   methods: {
     addTodo(){
       if (this.newTodoItem !== ''){
-        this.$emit("add",this.newTodoItem);
+        // this.$emit("add",this.newTodoItem);
+        const text = this.newTodoItem.trim();
+        this.$store.commit('addItem',text);
         this.clearInput();
       }else{
         this.showModal = true;
