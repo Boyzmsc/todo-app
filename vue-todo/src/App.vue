@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <todo-header></todo-header>
-        <todo-input v-on:add = "addItem"></todo-input>
-        <todo-list v-bind:propsdata = "todoItems" v-on:remove = "removeItem" v-on:complete = "completeItem"></todo-list>
-        <todo-footer v-on:clear = "clearAll"></todo-footer>
+        <todo-input></todo-input>
+        <todo-list></todo-list>
+        <todo-footer></todo-footer>
     </div>
 </template>
 
@@ -26,40 +26,30 @@ export default {
         'todo-list' : TodoList,
         'todo-footer' : TodoFooter
     },
-    // created(){
-    //     if (localStorage.length > 0){
-    //         for (let i = 0; i < localStorage.length; i++){
-    //             // 웹팩 정보 제외 구문
-    //             if (localStorage.key(i) !== 'loglevel:webpack-dev-server'){
-    //                 this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-    //             }
-    //         }
-    //     }
-    // },
     methods : {
-        // 데이터 추가
-        addItem(itemAdded){
-            const obj = {completed : false, item : itemAdded};
-            localStorage.setItem(itemAdded, JSON.stringify(obj));
-            this.todoItems.push(obj);
-        },
-        // 지정 데이터 삭제 (로컬 스토리지, 리스트 배열)
-        removeItem(todoItem, index){
-            localStorage.removeItem(todoItem);
-            this.todoItems.splice(index,1);
-        },
-        // 지정 데이터 completed 속성 갱신 (로컬 스토리지, 리스트 배열)
-        completeItem(todoItem, index){
-            this.todoItems[index].completed = !this.todoItems[index].completed
-            // 로컬 스트리지의 데이터 갱신 -> 제거 이후 추가
-            localStorage.removeItem(todoItem.item);
-            localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
-        },
-        // 데이터 초기화
-        clearAll(){
-            this.todoItems = [];
-            localStorage.clear();
-        }
+        // // 데이터 추가
+        // addItem(itemAdded){
+        //     const obj = {completed : false, item : itemAdded};
+        //     localStorage.setItem(itemAdded, JSON.stringify(obj));
+        //     this.todoItems.push(obj);
+        // },
+        // // 지정 데이터 삭제 (로컬 스토리지, 리스트 배열)
+        // removeItem(todoItem, index){
+        //     localStorage.removeItem(todoItem);
+        //     this.todoItems.splice(index,1);
+        // },
+        // // 지정 데이터 completed 속성 갱신 (로컬 스토리지, 리스트 배열)
+        // completeItem(todoItem, index){
+        //     this.todoItems[index].completed = !this.todoItems[index].completed
+        //     // 로컬 스트리지의 데이터 갱신 -> 제거 이후 추가
+        //     localStorage.removeItem(todoItem.item);
+        //     localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
+        // },
+        // // 데이터 초기화
+        // clearAll(){
+        //     this.todoItems = [];
+        //     localStorage.clear();
+        // }
     }
 }
 </script>
