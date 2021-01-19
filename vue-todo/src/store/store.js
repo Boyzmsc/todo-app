@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 // Vue를 사용할 때 전역으로 기능을 추가하고 싶을 때 .use() 사용
 Vue.use(Vuex);
 
+// App.vue 내의 created 속성을 가져옴
 const storage = {
     fetch() {
         const arr = [];
@@ -19,6 +20,7 @@ const storage = {
     }
 };
 
+// Vuex 적용
 export const store = new Vuex.Store({
     state: {
         todoItems: storage.fetch()
