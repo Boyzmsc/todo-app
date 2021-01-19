@@ -31,16 +31,16 @@ export const store = new Vuex.Store({
             state.todoItems.push(obj);
         },
         // 지정 데이터 삭제 (로컬 스토리지, 리스트 배열)
-        removeItem(state,obj){
-            localStorage.removeItem(obj.todoItem);
-            state.todoItems.splice(obj.index,1);
+        removeItem(state,payload){
+            localStorage.removeItem(payload.todoItem);
+            state.todoItems.splice(payload.index,1);
         },
         // 지정 데이터 completed 속성 갱신 (로컬 스토리지, 리스트 배열)
-        completeItem(state,obj){
-            state.todoItems[obj.index].completed = !state.todoItems[obj.index].completed
+        completeItem(state,payload){
+            state.todoItems[payload.index].completed = !state.todoItems[payload.index].completed
             // 로컬 스트리지의 데이터 갱신 -> 제거 이후 추가
-            localStorage.removeItem(obj.todoItem.item);
-            localStorage.setItem(obj.todoItem.item,JSON.stringify(obj.todoItem));
+            localStorage.removeItem(payload.todoItem.item);
+            localStorage.setItem(payload.todoItem.item,JSON.stringify(payload.todoItem));
         },
         // 데이터 초기화
         clearAll(state){
