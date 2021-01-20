@@ -9,6 +9,7 @@
 <script>
 import {mapMutations} from 'vuex'
 
+// 기존 함수 -> 헬퍼 함수 적용
 export default {
   methods: {
     ...mapMutations({
