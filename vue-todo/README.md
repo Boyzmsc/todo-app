@@ -1,5 +1,3 @@
-# vue-todo
-
 ## Project setup
 ```
 npm install
