@@ -1,9 +1,10 @@
 # To Do App
 
-## 구현 방향
-- Vue.js로 구현하는 Todo App
-- Vue.js를 위한 ES6
-- 복잡한 애플리케이션 구현을 위한 Vuex
+## Implementation 
+- Program Todo App using Vue.js
+- Refactoring App using ES6
+- Applying Vuex
+- Modularization & Structuring
 
 ## License & Copyright
 
