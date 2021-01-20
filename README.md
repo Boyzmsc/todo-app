@@ -2,8 +2,7 @@
 
 ## Implementation 
 - Program Todo App using Vue.js
-- Refactoring App using ES6
-- Refactoring App using Vuex
+- Refactoring App using ES6, Vuex
 - Modularization & Structuring
 
 ## License & Copyright
