@@ -1,10 +1,10 @@
 <template>
   <div>
     <transition-group name="list" tag="ul">
-        <li class = "shadow" v-for = "(todoItem, index) in this.$store.state.todoItems" v-bind:key = "todoItem.item">
-          <i class="fas fa-check checkBtn" v-bind:class = "{checkBtnCompleted : todoItem.completed}" v-on:click = "toggleComplete(todoItem,index)"></i>
+        <li class = "shadow" v-for = "(todoItem, index) in this.fetchTodoItems" v-bind:key = "todoItem.item">
+          <i class="fas fa-check checkBtn" v-bind:class = "{checkBtnCompleted : todoItem.completed}" v-on:click = "toggleComplete({todoItem,index})"></i>
           <span v-bind:class = "{textCompleted : todoItem.completed}">{{todoItem.item}}</span>
-          <span class = "removeBtn" v-on:click = "removeTodo(todoItem.item, index)">
+          <span class = "removeBtn" v-on:click = "removeTodo({todoItem, index})">
             <i class="fas fa-trash-alt"></i>
           </span>
         </li>
@@ -13,16 +13,29 @@
 </template>
 
 <script>
+import {mapGetters, mapMutations} from 'vuex'
+
+// 기존 함수 -> 헬퍼 함수 적용
 export default {
   methods: {
-    removeTodo(todoItem, index){
-      // this.$emit("remove", todoItem, index);
-      this.$store.commit('removeItem',{todoItem,index});
-      },
-    toggleComplete(todoItem, index){
-      // this.$emit("complete", todoItem, index);
-      this.$store.commit('completeItem',{todoItem,index});
-    }
+    ...mapMutations({
+      removeTodo : 'removeItem',
+      toggleComplete : 'completeItem'
+    })
+    // removeTodo(todoItem, index){
+    //   // this.$emit("remove", todoItem, index);
+    //   this.$store.commit('removeItem',{todoItem,index});
+    //   },
+    // toggleComplete(todoItem, index){
+    //   // this.$emit("complete", todoItem, index);
+    //   this.$store.commit('completeItem',{todoItem,index});
+    // }
+  },
+  computed : {
+    ...mapGetters(['fetchTodoItems'])
+    // todoItems() {
+    //   return this.$store.getters.storedTodoItems
+    // }
   }
 }
 </script>

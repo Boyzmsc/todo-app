@@ -18,12 +18,17 @@ const storage = {
         }
         return arr;
     }
-};
+}; 
 
 // Vuex 적용
 export const store = new Vuex.Store({
     state: {
         todoItems: storage.fetch()
+    },
+    getters : {
+        fetchTodoItems(state){
+            return state.todoItems;
+        }
     },
     mutations : {
         // 데이터 추가
@@ -34,7 +39,7 @@ export const store = new Vuex.Store({
         },
         // 지정 데이터 삭제 (로컬 스토리지, 리스트 배열)
         removeItem(state,payload){
-            localStorage.removeItem(payload.todoItem);
+            localStorage.removeItem(payload.todoItem.item);
             state.todoItems.splice(payload.index,1);
         },
         // 지정 데이터 completed 속성 갱신 (로컬 스토리지, 리스트 배열)

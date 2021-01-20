@@ -7,12 +7,18 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
+
+// 기존 함수 -> 헬퍼 함수 적용
 export default {
   methods: {
-    clearTodo(){
-      // this.$emit('clear');
-      this.$store.commit('clearAll');
-    }
+    ...mapMutations({
+      clearTodo : 'clearAll'
+    })
+    // clearTodo(){
+    //   // this.$emit('clear');
+    //   this.$store.commit('clearAll');
+    // }
   }
 }
 </script>
